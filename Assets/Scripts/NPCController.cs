@@ -13,24 +13,24 @@ public class NPCController : MonoBehaviour
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        transforms = new Transform[5];
-        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag ("waypoint");
-        for (int i = 0; i < transforms.Length; i++) {
-            transforms[i] = taggedObjects[i].transform;
-        }
-        xcount = Random.Range(0, 5);
+        // transforms = new Transform[5];
+        // GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag ("waypoint");
+        // for (int i = 0; i < transforms.Length; i++) {
+        //     transforms[i] = taggedObjects[i].transform;
+        // }
+        // xcount = Random.Range(0, 5);
     }
 
     // Define AI behavior for the characters
     void Update()
     {
-        if(transform.position == transforms[xcount].position){
-            xcount = Random.Range(0, 5);
-        }
+        // if(transform.position == transforms[xcount].position){
+        //     xcount = Random.Range(0, 5);
+        // }
             
         // Implement Simple AI to Move towards the player
         // Debug.Log("Distance from player: " + Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, this.transform.position));
-        Vector3 direction = (transforms[xcount].position - transform.position).normalized;
+        Vector3 direction = (playerTransform.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
 
        
